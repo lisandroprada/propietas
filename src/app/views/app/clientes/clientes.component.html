@@ -1,5 +1,5 @@
-<app-list-page-header [displayMode]="displayMode" [itemOptionsPerPage]="[5,10,20]" [itemsPerPage]="itemsPerPage" [selectAllState]="selectAllState" (changeDisplayMode)="changeDisplayMode($event)" (addNewItem)="showAddNewModal()" (selectAllChange)="selectAllChange($event)"
-    (itemsPerPageChange)="itemsPerPageChange($event)" (changeOrderBy)="changeOrderBy($event)" (searchKeyUp)="searchKeyUp($event)">
+<app-list-page-header [displayMode]="displayMode" [displayModeImg]="displayModeImg" [displayModeThumb]="displayModeThumb" [itemOptionsPerPage]="[5,10,20]" [itemsPerPage]="itemsPerPage" [selectAllState]="selectAllState" (changeDisplayMode)="changeDisplayMode($event)"
+    [itemOptionsOrders]="itemOptionsOrders" [itemOrder]="itemOrder" (addNewItem)="showAddNewModal()" (selectAllChange)="selectAllChange($event)" (itemsPerPageChange)="itemsPerPageChange($event)" (changeOrderBy)="changeOrderBy($event)" (searchKeyUp)="searchKeyUp($event)">
 </app-list-page-header>
 
 

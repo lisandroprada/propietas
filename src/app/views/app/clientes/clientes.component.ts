@@ -10,7 +10,10 @@ import { AddNewProductModalComponent } from 'src/app/containers/pages/add-new-pr
   templateUrl: './clientes.component.html'
 })
 export class ClientesComponent implements OnInit {
+
   displayMode = 'list';
+  displayModeThumb = false;
+  displayModeImg = false;
   selectAllState = '';
   statusColor = 'secondary';
   selected: Cliente[] = [];
@@ -24,7 +27,9 @@ export class ClientesComponent implements OnInit {
   endOfTheList = false;
   totalItem = 0;
   totalPage = 0;
+  itemOptionsOrders = [{ label: 'Apellido', value: 'customerLastName' }, { label: 'Documento', value: 'identityCard' }];
 
+  itemOrder = [{ label: 'Apellido', value: 'customerLastName' }];
   @ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewProductModalComponent;
 
