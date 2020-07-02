@@ -29,7 +29,6 @@ export class ApiService {
     return this.http.get(url, { params })
       .pipe(
         map((res: ClienteResponse) => {
-          console.log(res);
           return res;
         }),
         catchError(errorRes => {

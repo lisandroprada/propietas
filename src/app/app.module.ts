@@ -11,6 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { LayoutContainersModule } from './containers/layout/layout.containers.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PagesContainersModule } from './containers/pages/pages.containers.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TranslateModule.forRoot(),
     HttpClientModule,
     NgSelectModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    PagesContainersModule
   ],
   declarations: [
     AppComponent

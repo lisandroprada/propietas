@@ -38,6 +38,11 @@ const data: IMenuItem[] = [
     to: '/app/blank-page'
   },
   {
+    icon: 'iconsminds-bucket',
+    label: 'menu.clientes',
+    to: '/app/clientes'
+  },
+  {
     icon: 'iconsminds-library',
     label: 'menu.docs',
     to: 'https://vien-docs.coloredstrategies.com/',
