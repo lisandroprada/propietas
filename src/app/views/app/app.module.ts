@@ -10,7 +10,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [BlankPageComponent, AppComponent, ClientesComponent],
@@ -24,7 +25,9 @@ import { PagesContainersModule } from 'src/app/containers/pages/pages.containers
     PagesContainersModule,
     ContextMenuModule.forRoot({
       useBootstrap4: true,
-    })
+    }),
+    PaginationModule.forRoot(),
+    FormsModule
   ]
 })
 export class AppModule { }

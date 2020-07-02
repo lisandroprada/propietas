@@ -59,6 +59,7 @@ export class ClientesComponent implements OnInit {
           this.totalItem = data.totalItem;
           this.totalPage = data.totalPage;
           this.setSelectAllState();
+          console.log(data);
         } else {
           this.endOfTheList = true;
         }
