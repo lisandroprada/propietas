@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CollapseModule, RatingModule, TabsModule, AccordionModule, BsDropdownModule } from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
 import { LightboxModule } from 'ngx-lightbox';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -31,6 +31,10 @@ import { ProductDetailOrdersComponent } from './product-detail-orders/product-de
 import { ProductDetailCommentsComponent } from './product-detail-comments/product-detail-comments.component';
 import { ProductDetailInfoComponent } from './product-detail-info/product-detail-info.component';
 import { ProductDetailTabsComponent } from './product-detail-tabs/product-detail-tabs.component';
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [

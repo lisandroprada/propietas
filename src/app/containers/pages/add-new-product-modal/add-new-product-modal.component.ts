@@ -1,5 +1,6 @@
 import { Component, TemplateRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 @Component({
   selector: 'app-add-new-product-modal',
   templateUrl: './add-new-product-modal.component.html',
