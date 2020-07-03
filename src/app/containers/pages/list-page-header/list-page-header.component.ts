@@ -17,7 +17,8 @@ export class ListPageHeaderComponent implements OnInit {
   @Input() selectAllState = '';
   @Input() itemsPerPage = 10;
   @Input() itemOptionsPerPage = [5, 10, 20];
-  @Input() itemOrder = [];
+  @Input() itemOrderLabel;
+  @Input() itemOrderValue;
   @Input()  itemOptionsOrders = [];
 
   @Output() changeDisplayMode: EventEmitter<string> = new EventEmitter<string>();
@@ -27,10 +28,12 @@ export class ListPageHeaderComponent implements OnInit {
   @Output() itemsPerPageChange: EventEmitter<any> = new EventEmitter();
   @Output() changeOrderBy: EventEmitter<any> = new EventEmitter();
 
+
   @ViewChild('search') search: any;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.itemOrderLabel);
   }
 
   onSelectDisplayMode(mode: string) {
@@ -47,7 +50,8 @@ export class ListPageHeaderComponent implements OnInit {
   }
 
   onChangeOrderBy(item) {
-    this.itemOrder = item;
+    this.itemOrderLabel = item.label;
+    this.itemOrderValue = item.Value;
     this.changeOrderBy.emit(item);
   }
 

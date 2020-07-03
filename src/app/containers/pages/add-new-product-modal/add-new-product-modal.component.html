@@ -5,27 +5,52 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
-        <div>
-            <label>{{ 'pages.product-name' | translate }}</label>
-            <input type="email" class="form-control" placeholder="">
-        </div>
-        <div class="mt-4">
-            <label>{{ 'pages.category' | translate }}</label>
-            <label class="w-100">
+    <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+            <div>
+                <label>{{ 'cliente.name' | translate }}</label>
+                <input name="customerName" formControlName="customerName" [class.is-invalid]="customerNameInv" type="text" class="form-control" placeholder="">
+                <small *ngIf="customerNameInv" class="text-danger">Debe ingresar un nombre</small>
+            </div>
+            <div>
+                <label>{{ 'cliente.lastName' | translate }}</label>
+                <input name="customerLastName" formControlName="customerLastName" [class.is-invalid]="customerLastNameInv" type="text" class="form-control" placeholder="">
+                <small *ngIf="customerLastNameInv" class="text-danger">Debe ingresar el apellido</small>
+            </div>
+            <div>
+                <label>{{ 'cliente.identityCard' | translate }}</label>
+                <input name="identityCard" formControlName="identityCard" type="text" class="form-control" placeholder="">
+            </div>
+            <div>
+                <label>{{ 'cliente.phone' | translate }}</label>
+                <input name="phone" formControlName="phone" type="text" [class.is-invalid]="phoneInv" class="form-control" placeholder="">
+                <small *ngIf="phoneInv" class="text-danger">Debe ingresar un teléfono</small>
+            </div>
+            <div>
+                <label>{{ 'cliente.email' | translate }}</label>
+                <input name="email" formControlName="email" type="text" [class.is-invalid]="emailInv" class="form-control" placeholder="">
+
+            </div>
+            <small *ngIf="emailInv" class="text-danger">El email ingresado no es válido</small>
+            <div class="mt-4">
+                <label>{{ 'cliente.motivo' | translate }}</label>
+                <label class="w-100">
                 <ng-select appearance="outline" [searchable]="false">
                     <ng-option *ngFor="let item of categories" [value]="item.value">{{item.label}}
                     </ng-option>
                 </ng-select>
             </label>
+            </div>
+            <!-- <div class="mt-4">
+                <label>{{ 'pages.description' | translate }}</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div> -->
+
+
         </div>
-        <div class="mt-4">
-            <label>{{ 'pages.description' | translate }}</label>
-            <textarea class="form-control" rows="3"></textarea>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
+            <button type="submit" class="btn btn-primary float-right">{{ 'pages.submit' | translate}}</button>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
-        <button type="submit" class="btn btn-primary float-right">{{ 'pages.submit' | translate}}</button>
-    </div>
+    </form>
 </ng-template>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LightboxModule } from 'ngx-lightbox';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -66,6 +66,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RouterModule,
     CollapseModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutContainersModule,
     NgSelectModule,
     LightboxModule,

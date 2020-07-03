@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { AnyAaaaRecord } from 'dns';
 
 
 export interface ClienteResponse {
@@ -39,4 +40,16 @@ export class ClienteService {
     );
  }
 
+ postClientes(cliente: Cliente) {
+  const url = environment.apiUrlLocal + '/cliente';
+  return this.http.post(url, {cliente})
+    .pipe(map ((res: any ) => {
+      return res;
+    }),
+    catchError( errorRes => {
+      return throwError(errorRes);
+    })
+  );
+  }
 }
+

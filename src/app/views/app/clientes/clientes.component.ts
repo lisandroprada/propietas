@@ -28,8 +28,9 @@ export class ClientesComponent implements OnInit {
   totalItem = 0;
   totalPage = 0;
   itemOptionsOrders = [{ label: 'Apellido', value: 'customerLastName' }, { label: 'Documento', value: 'identityCard' }];
+  itemOrderLabel = 'Apellido';
+  itemOrderValue = 'customerLastName';
 
-  itemOrder = [{ label: 'Apellido', value: 'customerLastName' }];
   @ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewProductModalComponent;
 
@@ -64,7 +65,6 @@ export class ClientesComponent implements OnInit {
           this.totalItem = data.totalItem;
           this.totalPage = data.totalPage;
           this.setSelectAllState();
-          console.log(data);
         } else {
           this.endOfTheList = true;
         }

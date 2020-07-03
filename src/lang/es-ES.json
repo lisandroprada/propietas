@@ -1,6 +1,6 @@
 {
     "general": {
-        "copyright": "Vien Angular © 2020 All Rights Reserved."
+        "copyright": "NETRA S.R.L. © 2020 All Rights Reserved."
     },
     "user": {
         "login-title": "Iniciar sesión",
@@ -292,6 +292,14 @@
         "completed-tasks": "Tareas Completadas",
         "categories": "Categorías",
         "labels": "Etiquetas"
+    },
+    "cliente": {
+        "name": "Nombre",
+        "lastName": "Apellido",
+        "identityCard": "Documento",
+        "phone": "Teléfono",
+        "email": "Correo Electrónico",
+        "motivo": "Motivo"
     },
     "alert": {
         "rounded": "Alerta Redondeado",

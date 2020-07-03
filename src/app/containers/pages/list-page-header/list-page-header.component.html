@@ -66,10 +66,10 @@
                 <div class="d-block d-md-inline-block position-relative" *ngIf="showOrderBy">
                     <div class="float-md-left mr-1 mb-1" dropdown>
                         <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-dark btn-xs dropdown-toggle" aria-controls="dropdown-basic">
-              Order By : {{itemOrder[0].label}} <span class="caret"></span>
+              Order By : {{itemOrderLabel}} <span class="caret"></span>
             </button>
                         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-                            <li role="menuitem" *ngFor="let item of itemOptionsOrders"><a [ngClass]="item.value === itemOrder[0].value ? 'dropdown-item active' : 'dropdown-item'" (click)="onChangeOrderBy(item)">{{item.label}}</a></li>
+                            <li role="menuitem" *ngFor="let item of itemOptionsOrders"><a [ngClass]="item.value === itemOrderValue ? 'dropdown-item active' : 'dropdown-item'" (click)="onChangeOrderBy(item)">{{item.label}}</a></li>
                         </ul>
                     </div>
                 </div>

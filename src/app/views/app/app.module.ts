@@ -12,6 +12,7 @@ import { ContextMenuModule } from 'ngx-contextmenu';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [BlankPageComponent, AppComponent, ClientesComponent],
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
       useBootstrap4: true,
     }),
     PaginationModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ]
 })
 export class AppModule { }
