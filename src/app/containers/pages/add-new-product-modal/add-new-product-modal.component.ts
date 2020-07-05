@@ -1,7 +1,8 @@
 import { Component, TemplateRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// import { Cliente } from 'src/app/models/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Cliente } from 'src/app/models/cliente';
 
 @Component({
   selector: 'app-add-new-product-modal',
@@ -10,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddNewProductModalComponent implements OnInit {
 
-  // cliente: Cliente = new Cliente('', '', '', '', '', '', '');
+  cliente = new Cliente('', '', '', '');
 
   modalRef: BsModalRef;
   config = {
@@ -30,15 +31,14 @@ export class AddNewProductModalComponent implements OnInit {
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
   constructor(private modalService: BsModalService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private _clienteService: ClienteService) {
 
   this.crearFormulario();
 
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   get customerNameInv() {
     return this.forma.get('customerName').invalid && this.forma.get('customerName').touched;
@@ -68,6 +68,32 @@ export class AddNewProductModalComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.forma);
+    if ( this.forma.invalid ) {
+
+      return Object.values( this.forma.controls ).forEach( control => {
+
+        if ( control instanceof FormGroup ) {
+          Object.values( control.controls ).forEach( (control: any) => {
+            return control.markAsTouched();
+          } );
+        } else {
+          control.markAsTouched();
+        }
+      });
+    }
+
+    // Posteo de información
+    // this.forma.reset({
+    //       nombre: 'Sin nombre'
+    //     });
+
+    this.cliente = this.forma.value;
+
+    this._clienteService.postClientes(this.cliente)
+      .subscribe( resCliente => {
+        console.log( resCliente );
+      });
+
   }
 }
+
