@@ -3,12 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { SecondMenuComponent } from './second-menu.component';
 import { SecondComponent } from './second/second.component';
 
+
+
+
 const routes: Routes = [
     {
         path: '', component: SecondMenuComponent,
         children: [
             { path: '', redirectTo: 'second', pathMatch: 'full' },
-            { path: 'second', component: SecondComponent },
+            { path: 'second', component: SecondComponent }
         ]
     }
 ];

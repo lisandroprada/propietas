@@ -97,6 +97,9 @@
         "videos": "Videos",
         "blank-page": "Página en Blanco",
         "clientes": "Clientes",
+        "inmuebles": "Inmuebles",
+        "core": "Aplicaciones",
+        "contratos": "Contratos",
         "types": "Menu Types",
         "levels": "Menu Levels",
         "third-level-1": "Third Level 1",
@@ -300,6 +303,9 @@
         "phone": "Teléfono",
         "email": "Correo Electrónico",
         "motivo": "Motivo"
+    },
+    "core": {
+
     },
     "alert": {
         "rounded": "Alerta Redondeado",

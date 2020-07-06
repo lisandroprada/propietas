@@ -33,14 +33,31 @@ const data: IMenuItem[] = [
     ]
   },
   {
-    icon: 'iconsminds-bucket',
-    label: 'menu.blank-page',
-    to: '/app/blank-page'
+    icon: 'iconsminds-three-arrow-fork',
+    label: 'menu.core',
+    to: '/app/core',
+    subs: [
+      {
+        icon: 'iconsminds-male-female',
+        label: 'menu.clientes',
+        to: '/app/core/clientes'
+      },
+      {
+        icon: 'iconsminds-home',
+        label: 'menu.inmuebles',
+        to: '/app/core/inmuebles'
+      },
+      {
+        icon: 'iconsminds-diploma-2',
+        label: 'menu.contratos',
+        to: '/app/core/contratos'
+      }
+    ]
   },
   {
     icon: 'iconsminds-bucket',
-    label: 'menu.clientes',
-    to: '/app/clientes'
+    label: 'menu.blank-page',
+    to: '/app/blank-page'
   },
   {
     icon: 'iconsminds-library',

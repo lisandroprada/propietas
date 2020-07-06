@@ -1,9 +1,9 @@
-import { HotkeysService, Hotkey } from 'angular2-hotkeys';
-import { ApiService } from 'src/app/data/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContextMenuComponent } from 'ngx-contextmenu';
 import { Cliente } from 'src/app/models/cliente';
 import { AddNewProductModalComponent } from 'src/app/containers/pages/add-new-product-modal/add-new-product-modal.component';
+import { HotkeysService, Hotkey } from 'angular2-hotkeys';
+import { ApiService } from 'src/app/data/api.service';
 
 @Component({
   selector: 'app-clientes',
@@ -36,17 +36,17 @@ export class ClientesComponent implements OnInit {
 
   constructor(private apiService: ApiService,
               private hotkeysService: HotkeysService) {
-                this.hotkeysService.add(new Hotkey('ctrl+a', (event: KeyboardEvent): boolean => {
-                  this.selected = [...this.data];
-                  return false;
-                }));
-                this.hotkeysService.add(new Hotkey('ctrl+d', (event: KeyboardEvent): boolean => {
-                  this.selected = [];
-                  return false;
-                }));
-               }
+      this.hotkeysService.add(new Hotkey('ctrl+a', (event: KeyboardEvent): boolean => {
+        this.selected = [...this.data];
+        return false;
+      }));
+      this.hotkeysService.add(new Hotkey('ctrl+d', (event: KeyboardEvent): boolean => {
+        this.selected = [];
+        return false;
+      }));
+     }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadData(this.itemsPerPage, this.currentPage, this.search, this.orderBy);
   }
 
@@ -134,4 +134,5 @@ export class ClientesComponent implements OnInit {
   onContextMenuClick(action: string, item: Cliente) {
     console.log('onContextMenuClick -> action :  ', action, ', item.identityCard :', item.identityCard);
   }
+
 }
