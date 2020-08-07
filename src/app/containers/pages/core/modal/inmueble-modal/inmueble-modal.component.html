@@ -1,0 +1,42 @@
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'pages.add-new-modal-title' | translate}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="forma">
+        <div class="modal-body">
+            <div>
+                <label>{{ 'cliente.name' | translate }}</label>
+                <input name="customer" formControlName="customer" type="text" class="form-control" placeholder="">
+            </div>
+            <div>
+                <pre class="card card-block card-header">Model: {{ search | json }}</pre>
+
+                <input [(ngModel)]="search" formControlName="search" name="search" typeaheadOptionField="login" [typeahead]="suggestions$" [typeaheadAsync]="true" class="form-control" placeholder="Enter GitHub username">
+
+                <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+            </div>
+            <div>
+                <label>{{ 'forms.address' | translate }}</label>
+                <input name="address" formControlName="address" type="text" class="form-control" placeholder="">
+            </div>
+            <div>
+                <label>{{ 'forms.state' | translate }}</label>
+                <input name="state" formControlName="state" type="text" class="form-control" placeholder="">
+            </div>
+            <div>
+                <label>{{ 'forms.city' | translate }}</label>
+                <input name="city" formControlName="city" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
+            <button type="submit" class="btn btn-primary float-right">{{ 'pages.submit' | translate}}</button>
+        </div>
+
+    </form>
+</ng-template>

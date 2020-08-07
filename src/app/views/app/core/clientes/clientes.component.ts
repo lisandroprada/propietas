@@ -3,7 +3,7 @@ import { ContextMenuComponent } from 'ngx-contextmenu';
 import { Cliente } from 'src/app/models/cliente';
 import { AddNewProductModalComponent } from 'src/app/containers/pages/add-new-product-modal/add-new-product-modal.component';
 import { HotkeysService, Hotkey } from 'angular2-hotkeys';
-import { ApiService } from 'src/app/data/api.service';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-clientes',
@@ -34,7 +34,7 @@ export class ClientesComponent implements OnInit {
   @ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewProductModalComponent;
 
-  constructor(private apiService: ApiService,
+  constructor(private clienteService: ClienteService,
               private hotkeysService: HotkeysService) {
       this.hotkeysService.add(new Hotkey('ctrl+a', (event: KeyboardEvent): boolean => {
         this.selected = [...this.data];
@@ -56,8 +56,8 @@ export class ClientesComponent implements OnInit {
     this.search = search;
     this.orderBy = orderBy;
 
-    this.apiService.getProducts(pageSize, currentPage, search, orderBy).subscribe(
-      data => {
+    this.clienteService.getClientes(pageSize, currentPage, search, orderBy).subscribe(
+      (data: any) => {
         if (data.status) {
           this.isLoading = false;
           this.data = data.clientes;
@@ -84,11 +84,11 @@ export class ClientesComponent implements OnInit {
   }
 
   isSelected(p: Cliente) {
-    return this.selected.findIndex(x => x.id === p.id) > -1;
+    return this.selected.findIndex(x => x._id === p._id) > -1;
   }
   onSelect(item: Cliente) {
     if (this.isSelected(item)) {
-      this.selected = this.selected.filter(x => x.id !== item.id);
+      this.selected = this.selected.filter(x => x._id !== item._id);
     } else {
       this.selected.push(item);
     }

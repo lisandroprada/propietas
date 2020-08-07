@@ -1,0 +1,416 @@
+{
+    "da": {
+        "numero": {
+            "s": "da",
+            "p": "dan"
+        }
+    },
+    "proverá": {
+        "numero": {
+            "s": "proverá",
+            "p": "proveran"
+        }
+    },
+    "abone": {
+        "numero": {
+            "s": "abone",
+            "p": "abonen"
+        }
+    },
+    "dará": {
+        "numero": {
+            "s": "dará",
+            "p": "darán"
+        }
+    },
+    "debe": {
+        "numero": {
+            "s": "debe",
+            "p": "deben"
+        }
+    },
+    "deberá": {
+        "numero": {
+            "s": "deberá",
+            "p": "deberán"
+        }
+    },
+    "declara": {
+        "numero": {
+            "s": "declara",
+            "p": "declaran"
+        }
+    },
+    "devuelva": {
+        "numero": {
+            "s": "devuelva",
+            "p": "devuelvan"
+        }
+    },
+    "podrá": {
+        "numero": {
+            "s": "podrá",
+            "p": "podrán"
+        }
+    },
+    "requiera": {
+        "numero": {
+            "s": "requiera",
+            "p": "requieran"
+        }
+    },
+    "entregará": {
+        "numero": {
+            "s": "entregará",
+            "p": "entregarán"
+        }
+    },
+    "entrega": {
+        "numero": {
+            "s": "entrega",
+            "p": "entregan"
+        }
+    },
+    "entregara": {
+        "numero": {
+            "s": "entregara",
+            "p": "entregaran"
+        }
+    },
+    "notificare": {
+        "numero": {
+            "s": "notificare",
+            "p": "notificaren"
+        }
+    },
+    "queda": {
+        "numero": {
+            "s": "queda",
+            "p": "quedan"
+        }
+    },
+    "abonará": {
+        "numero": {
+            "s": "abonará",
+            "p": "abonarán"
+        }
+    },
+    "abonara": {
+        "numero": {
+            "s": "abonara",
+            "p": "abonaran"
+        }
+    },
+    "autorizará": {
+        "numero": {
+            "s": "autorizará",
+            "p": "autorizarán"
+        }
+    },
+    "tome": {
+        "numero": {
+            "s": "tome",
+            "p": "tomen"
+        }
+    },
+    "tendrá": {
+        "numero": {
+            "s": "tendrá",
+            "p": "tendrán"
+        }
+    },
+    "recibe": {
+        "numero": {
+            "s": "recibe",
+            "p": "reciben"
+        }
+    },
+    "compromete": {
+        "numero": {
+            "s": "compromete",
+            "p": "comprometen"
+        }
+    },
+    "constituye": {
+        "numero": {
+            "s": "constituye",
+            "p": "constituyen"
+        }
+    },
+    "responderá": {
+        "numero": {
+            "s": "responderá",
+            "p": "responderán"
+        }
+    },
+    "reconoce": {
+        "numero": {
+            "s": "reconoce",
+            "p": "reconocen"
+        }
+    },
+    "involucra": {
+        "numero": {
+            "s": "involucra",
+            "p": "involucran"
+        }
+    },
+    "obliga": {
+        "numero": {
+            "s": "obliga",
+            "p": "obligan"
+        }
+    },
+    "hiciere": {
+        "numero": {
+            "s": "hiciere",
+            "p": "hicieren"
+        }
+    },
+    "contrae": {
+        "numero": {
+            "s": "contrae",
+            "p": "contraen"
+        }
+    },
+    "hace": {
+        "numero": {
+            "s": "hace",
+            "p": "hacen"
+        }
+    },
+    "será": {
+        "numero": {
+            "s": "será",
+            "p": "serán"
+        }
+    },
+    "diese": {
+        "numero": {
+            "s": "diese",
+            "p": "diesen"
+        }
+    },
+    "indique": {
+        "numero": {
+            "s": "indique",
+            "p": "indiquen"
+        }
+    },
+    "llegase": {
+        "numero": {
+            "s": "llegase",
+            "p": "llegasen"
+        }
+    },
+    "mes": {
+        "numero": {
+            "s": "mes",
+            "p": "meses"
+        }
+    },
+    "peso": {
+        "numero": {
+            "s": "peso",
+            "p": "pesos"
+        }
+    },
+    "señor": {
+        "numero": {
+            "s": {
+                "m": "señor",
+                "f": "señora"
+            },
+            "p": {
+                "m": "señores",
+                "f": "señoras"
+            }
+        }
+    },
+    "locatario": {
+        "numero": {
+            "s": {
+                "m": "locatario",
+                "f": "locataria"
+            },
+            "p": {
+                "m": "locatarios",
+                "f": "locatarias"
+            }
+        }
+    },
+    "locador": {
+        "numero": {
+            "s": {
+                "m": "locador",
+                "f": "locadora"
+            },
+            "p": {
+                "m": "locadores",
+                "f": "locadoras"
+            }
+        }
+    },
+    "fiador": {
+        "numero": {
+            "s": {
+                "m": "fiador",
+                "f": "fiadora"
+            },
+            "p": {
+                "m": "fiadores",
+                "f": "fiadoras"
+            }
+        }
+    },
+    "este": {
+        "numero": {
+            "s": {
+                "m": "este",
+                "f": "esta"
+            },
+            "p": {
+                "m": "estos",
+                "f": "estas"
+            }
+        }
+    },
+    "solidario": {
+        "numero": {
+            "s": {
+                "m": "solidario",
+                "f": "solidaria"
+            },
+            "p": {
+                "m": "solidarios",
+                "f": "solidarias"
+            }
+        }
+    },
+    "pagador": {
+        "numero": {
+            "s": {
+                "m": "pagador",
+                "f": "pagadora"
+            },
+            "p": {
+                "m": "pagadores",
+                "f": "pagadoras"
+            }
+        }
+    },
+    "liso": {
+        "numero": {
+            "s": {
+                "m": "liso",
+                "f": "lisa"
+            },
+            "p": {
+                "m": "lisos",
+                "f": "lisas"
+            }
+        }
+    },
+    "llano": {
+        "numero": {
+            "s": {
+                "m": "llano",
+                "f": "llana"
+            },
+            "p": {
+                "m": "llanos",
+                "f": "llanas"
+            }
+        }
+    },
+    "habilitado": {
+        "numero": {
+            "s": {
+                "m": "habilitado",
+                "f": "habilitada"
+            },
+            "p": {
+                "m": "habilitados",
+                "f": "habilitadas"
+            }
+        }
+    },
+    "interiorizado": {
+        "numero": {
+            "s": {
+                "m": "interiorizado",
+                "f": "interiorizada"
+            },
+            "p": {
+                "m": "interiorizados",
+                "f": "interiorizadas"
+            }
+        }
+    },
+    "el": {
+        "numero": {
+            "s": {
+                "m": "el",
+                "f": "la"
+            },
+            "p": {
+                "m": "los",
+                "f": "las"
+            }
+        }
+    },
+    "al": {
+        "numero": {
+            "s": {
+                "m": "al",
+                "f": "a la"
+            },
+            "p": {
+                "m": "a los",
+                "f": "a las"
+            }
+        }
+    },
+    "del": {
+        "numero": {
+            "s": {
+                "m": "del",
+                "f": "de la"
+            },
+            "p": {
+                "m": "de los",
+                "f": "de las"
+            }
+        }
+    },
+    "le": {
+        "numero": {
+            "s": "le",
+            "p": "les"
+        }
+    },
+    "locadorAdicional": " y {elLocador2} {tituloLocador} <strong>{locadorNombre2}</strong>, DNI N° {locadorDNI2} con domicilio en la calle {locadorDireccion2} de la ciudad de {locadorCiudad2}, con domicilio electrónico {locadorEmail2}, ",
+    "locatarioAdicional": " y {elLocatario2} {tituloLocatario2} <strong>{locatarioNombre2}</strong>, DNI N° {locatarioDNI2} con domicilio en la calle {locatarioDireccion2} de la ciudad de {locatarioCiudad2}, con domicilio electrónico {locatarioEmail2}, ",
+    "fiadorAdicional": " y {elFiador2} {tituloFiador2} <strong>{fiadorNombre2}</strong>, DNI N° {fiadorDNI2} con domicilio en la calle {fiadorDireccion2} de la ciudad de {fiadorCiudad2}, con domicilio electrónico {fiadorEmail2}, ",
+    "c1": "PRIMERA",
+    "c2": "SEGUNDA",
+    "c3": "TERCERA",
+    "c4": "CUARTA",
+    "c5": "QUINTA",
+    "c6": "SEXTA",
+    "c7": "SEPTIMA",
+    "c8": "OCTAVA",
+    "c9": "NOVENA",
+    "c10": "DECIMA",
+    "c11": "DECIMO PRIMERA",
+    "c12": "DECIMO SEGUNDA",
+    "c13": "DECIMO TRECERA",
+    "c14": "DECIMO CUARTA",
+    "c15": "DECIMO QUINTA",
+    "c16": "DECIMO SEXTA",
+    "c17": "DECIMO SEPTIMA",
+    "c18": "DECIMO OCTAVA",
+    "c19": "DECIMO NOVENA",
+    "c20": "VIGÉSIMA"
+
+}

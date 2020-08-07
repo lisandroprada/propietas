@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-product-modal',
@@ -11,7 +12,7 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class AddNewProductModalComponent implements OnInit {
 
-  cliente = new Cliente('', '', '', '');
+  cliente = new Cliente('', '', '', '', '', '', '', '', '', '');
 
   modalRef: BsModalRef;
   config = {
@@ -32,7 +33,8 @@ export class AddNewProductModalComponent implements OnInit {
 
   constructor(private modalService: BsModalService,
               private fb: FormBuilder,
-              private _clienteService: ClienteService) {
+              private _clienteService: ClienteService,
+              private router: Router) {
 
   this.crearFormulario();
 
@@ -90,10 +92,13 @@ export class AddNewProductModalComponent implements OnInit {
     this.cliente = this.forma.value;
 
     this._clienteService.postClientes(this.cliente)
-      .subscribe( resCliente => {
+      .subscribe(  (resCliente) => {
+        const cliente = resCliente as any['cliente'];
         console.log( resCliente );
+        this.modalRef.hide();
+        this.router.navigate(['/app/core/cliente', cliente.cliente._id]);
       });
-
   }
 }
+
 

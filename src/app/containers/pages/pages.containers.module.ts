@@ -35,6 +35,12 @@ import { RatingModule } from 'ngx-bootstrap/rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { PipesModule } from '../pipes/pipes.module';
+import { InmuebleModalComponent } from './core/modal/inmueble-modal/inmueble-modal.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ContratoEditorModalComponent } from './core/modal/contrato-editor-modal/contrato-editor-modal.component';
+import { QuillModule } from 'ngx-quill';
+import { ContratoModalComponent } from './core/modal/contrato-modal/contrato-modal.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ProductDetailOrdersComponent,
     ProductDetailCommentsComponent,
     ProductDetailInfoComponent,
-    ProductDetailTabsComponent
+    ProductDetailTabsComponent,
+    InmuebleModalComponent,
+    ContratoEditorModalComponent,
+    ContratoModalComponent
   ],
   imports: [
     CommonModule,
@@ -76,7 +85,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RatingModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    PipesModule,
+    TypeaheadModule.forRoot(),
+    QuillModule.forRoot()
   ],
   exports: [
     AddNewProductModalComponent,
@@ -99,7 +111,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ProductDetailOrdersComponent,
     ProductDetailCommentsComponent,
     ProductDetailInfoComponent,
-    ProductDetailTabsComponent
+    ProductDetailTabsComponent,
+    InmuebleModalComponent,
+    ContratoEditorModalComponent,
+    ContratoModalComponent
   ]
 })
 export class PagesContainersModule { }

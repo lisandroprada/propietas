@@ -17,6 +17,7 @@ import { ModalSizesComponent } from './modal-sizes/modal-sizes.component';
 import { ModalChildComponent } from './modal-child/modal-child.component';
 import { ModalInnerComponent } from './modal-component/modal-inner-component';
 import { ModalModule } from 'ngx-bootstrap';
+import { ModalSavedComponent } from './modal-saved/modal-saved.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModalModule } from 'ngx-bootstrap';
     ModalDirectiveComponent,
     ModalSizesComponent,
     ModalChildComponent,
-    ModalInnerComponent
+    ModalInnerComponent,
+    ModalSavedComponent
   ],
   imports: [SharedModule, ModalModule.forRoot()],
   providers: [],

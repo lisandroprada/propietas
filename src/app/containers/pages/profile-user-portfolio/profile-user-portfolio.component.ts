@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox';
 
 @Component({
@@ -6,7 +6,7 @@ import { Lightbox } from 'ngx-lightbox';
   templateUrl: './profile-user-portfolio.component.html'
 })
 export class ProfileUserPortfolioComponent implements OnInit {
-
+  @Input() clienteImg = '';
   constructor(private lightbox: Lightbox) { }
 
   ngOnInit() {

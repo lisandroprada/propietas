@@ -9,4 +9,39 @@
     <div class="col-12 mb-4">
         <p>{{'menu.blank-page' | translate}}</p>
     </div>
+
+    <div class="col-6">
+        <pre>{{clientes | json}}</pre>
+    </div>
+
+    <div class="col-6">
+        <label>Locatario</label>
+        <ng-select [items]="items" bindValue="_id" bindLabel="fullName" placeholder="Seleccione locatario" [typeahead]="typeahead" [multiple]="true" [(ngModel)]="clientes">
+        </ng-select>
+        <p>
+            Locatarios:
+            <span *ngIf="clientes">
+               {{clientes | json}}
+          </span>
+        </p>
+
+    </div>
+    <hr>
+    <div class="col-6">
+        <p>Select multiple elements</p>
+
+        <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true" bindLabel="fullName" [typeahead]="typeahead" placeholder="Select people" [(ngModel)]="selectedPeople">
+        </ng-select>
+
+        <div class="mt-3">
+            Selected value: <br/>
+            <ul>
+                <li *ngFor="let item of selectedPeople">{{item | json}}</li>
+            </ul>
+            <button (click)="clearModel()" class="btn btn-secondary btn-sm">Clear model</button>
+            <button (click)="changeModel()" class="btn btn-secondary btn-sm">Change model</button>
+        </div>
+    </div>
+
+
 </div>

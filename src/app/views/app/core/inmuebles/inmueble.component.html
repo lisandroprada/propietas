@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h3>{{data.address | uppercase}}</h3>
+            <div class="top-right-button-container">
+                <div dropdown>
+                    <button dropdownToggle type="button" class="btn btn-outline-primary btn-lg flex-grow-1 dropdown-toggle">
+                       {{ 'pages.actions' | translate }} <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <li role="menuitem"><a class="dropdown-item" href="javascript:;">Action</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                    </ul>
+                </div>
+            </div>
+            <app-breadcrumb></app-breadcrumb>
+        </div>
+        <div>
+            <tabset class="separator-tabs">
+                <tab heading="{{'pages.profile' | translate |uppercase}}">
+                    <div class="row">
+                        <!-- <div class="col-12 col-lg-4 col-xl-4 col-left">
+                            <app-profile-process></app-profile-process>
+                        </div> -->
+                        <div class="col-12 col-lg-8 col-xl-8 col-right">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="mb-4">{{ 'forms.inmuebles-detalle' | translate }}</h5>
+                                    <form (ngSubmit)="onSubmit()" [formGroup]="forma">
+                                        <div class="row">
+                                            <label class="form-group has-float-label  col-md-6">
+                                            <input name="address" formControlName="address" [class.is-invalid]="addressInv" class="form-control" type="text" placeholder="" />
+                                            <small *ngIf="addressInv" class="text-danger">Debe ingresar un nombre</small>
+                                            <span>{{ 'forms.address' | translate }}</span>
+                                          </label>
+                                            <label class="form-group has-float-label  col-md-6">
+                                              <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Select people" formControlName="contacto">
+                                              </ng-select>
+                                              <span>{{ 'forms.owner' | translate }}</span>
+                                          </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="form-group has-float-label col-md-6">
+                                          <select name="state" formControlName="state" class="form-control">
+                                            <option value="">Seleccione una provincia</option>
+                                            <option *ngFor="let item of state"  [value]="item.iso_31662">{{item.provincia}}</option>
+                                          </select>
+                                          <span>{{ 'forms.state' | translate }}</span>
+                                        </label>
+                                            <label class="form-group has-float-label col-md-6">
+                                          <select name="city" formControlName="city" class="form-control">
+                                            <option value="">Seleccione una ciudad</option>
+                                            <option *ngFor="let item of city"  [value]="item">{{item}}</option>
+                                          </select>
+                                          <span>{{ 'forms.city' | translate }}</span>
+                                        </label>
+                                        </div>
+                                        <button class="btn btn-secondary" [disabled]="!forma.dirty" type="button" (click)="cancelar()">{{ 'forms.cancel' | translate }}</button>
+                                        <button class="btn btn-primary" [disabled]="!forma.dirty" type="submit" (click)="openModal(template)">{{ 'forms.submit' | translate }}</button>
+                                    </form>
+                                </div>
+                                <pre>
+                                  {{formulario | json}}
+                                </pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="{{'pages.followers' | translate | uppercase }}">
+                    <app-profile-friends></app-profile-friends>
+                </tab>
+                <ng-template #template>
+                    <div class="modal-body text-center">
+                        <h6 class="modal-title mb-4">{{'modal.confirm-message' | translate}}</h6>
+                        <button type="button" class="btn btn-outline-primary" (click)="confirm()">{{'modal.ok' | translate}}</button> {{" "}}
+                    </div>
+                </ng-template>
+            </tabset>
+        </div>
+    </div>
+
+</div>

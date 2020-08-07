@@ -75,7 +75,7 @@ export class BreadcrumbComponent {
       }
     }
 
-    if (foundedMenuItem) { return foundedMenuItem.label; } else { return 'notFoundInMenu'; }
+    if (foundedMenuItem) { return foundedMenuItem.label; } else { return 'Cliente'; }
   }
 
 }

@@ -1,0 +1,19 @@
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'pages.add-new-modal-title' | translate}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+         <span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <form (ngSubmit)="onSubmit() " [formGroup]="forma ">
+                <quill-editor [modules]="{toolbar: true} " formControlName="editor" name="editor" [styles]="{height: '200px'} ">
+                </quill-editor>
+                <!-- <pre>{{forma.get('editor').value |json}} </pre> -->
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
+    </div>
+</ng-template>

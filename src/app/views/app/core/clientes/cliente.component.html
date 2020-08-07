@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h1 ngfor>{{data.customerName}} {{data.customerLastName}}</h1>
+            <div class="top-right-button-container">
+                <div dropdown>
+                    <button dropdownToggle type="button" class="btn btn-outline-primary btn-lg flex-grow-1 dropdown-toggle">
+                  {{ 'pages.actions' | translate }} <span class="caret"></span>
+                </button>
+                    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <li role="menuitem"><a class="dropdown-item" href="javascript:;">Action</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                    </ul>
+                </div>
+            </div>
+            <app-breadcrumb></app-breadcrumb>
+        </div>
+
+        <div>
+            <tabset class="separator-tabs">
+                <tab heading="{{'pages.profile' | translate | uppercase }}">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 col-xl-4 col-left">
+                            <!-- <app-profile-user-portfolio [clienteImg]="data.img"></app-profile-user-portfolio>
+                            <app-profile-recent-posts></app-profile-recent-posts> -->
+                            <!-- <app-profile-process></app-profile-process> -->
+                        </div>
+
+                        <div class="col-12 col-lg-8 col-xl-8 col-right">
+                            <!-- <app-profile-portfolio-items></app-profile-portfolio-items> -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="mb-4">{{ 'forms.clientes-detalle' | translate }}</h5>
+
+                                    <form [formGroup]="forma" ngNativeValidate (ngSubmit)="onSubmit()">
+                                        <div class="row">
+                                            <label class="form-group has-float-label  col-md-6">
+                                          <input name="customerName" formControlName="customerName" [class.is-invalid]="customerNameInv" class="form-control" type="text" placeholder="" />
+                                          <small *ngIf="customerNameInv" class="text-danger">Debe ingresar un nombre</small>
+                                          <span>{{ 'forms.firstname' | translate }}</span>
+                                        </label>
+                                            <label class="form-group has-float-label  col-md-6">
+                                          <input name="customerLastName" formControlName="customerLastName" [class.is-invalid]="customerLastNameInv" class="form-control" type="text" placeholder="" />
+                                          <small *ngIf="customerLastNameInv" class="text-danger">Debe ingresar el apellido</small>
+                                          <span>{{ 'forms.lastname' | translate }}</span>
+                                        </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="form-group has-float-label col-md-6">
+                                            <select name="state" formControlName="state" class="form-control">
+                                              <option value="">Seleccione una provincia</option>
+                                              <option *ngFor="let item of state"  [value]="item.iso_31662">{{item.provincia}}</option>
+                                            </select>
+                                            <span>{{ 'forms.state' | translate }}</span>
+                                          </label>
+                                            <label class="form-group has-float-label col-md-6">
+                                            <select name="city" formControlName="city" class="form-control">
+                                              <option value="">Seleccione una ciudad</option>
+                                              <option *ngFor="let item of city"  [value]="item">{{item}}</option>
+                                            </select>
+                                            <span>{{ 'forms.city' | translate }}</span>
+                                          </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="form-group has-float-label col-md-6">
+                                              <select name="gender" formControlName="gender" class="form-control">
+                                                <option value="">Seleccione tipo de cliente</option>
+                                                <option value="1">Masculino</option>
+                                                <option value="2">Femenino</option>
+                                                <option value="3">Persona Jurídica</option>
+                                              </select>
+                                            <small *ngIf="genderInv" class="text-danger">Debe ingresar el tipo de cliente</small>
+                                            <span>{{ 'forms.gender' | translate }}</span>
+                                          </label>
+                                            <label class="form-group has-float-label col-md-6">
+                                            <select name="iva" formControlName="iva" class="form-control">
+                                              <option value="">Seleccione tipo de IVA</option>
+                                              <option value="0">Consumidor Final</option>
+                                              <option value="1">Responsable Inscripto</option>
+                                            </select>
+                                          <small *ngIf="genderInv" class="text-danger">Debe ingresar el tipo de cliente</small>
+                                          <span>{{ 'forms.gender' | translate }}</span>
+                                        </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="form-group has-float-label col-md-6">
+                                            <input name="identityCard" formControlName="identityCard" class="form-control" type="text" placeholder="" />
+                                            <span>{{ 'forms.identity-card' | translate }}</span>
+                                          </label>
+                                            <label class="form-group has-float-label col-md-6">
+                                            <input name="tax_id" formControlName="tax_id" class="form-control" />
+                                            <span>{{ 'forms.tax_id' | translate }}</span>
+                                          </label>
+                                        </div>
+                                        <label class="form-group has-float-label">
+                                          <input name="addressLine1" formControlName="addressLine1" class="form-control" type="text" placeholder="" />
+                                          <span>{{ 'forms.address' | translate }}</span>
+                                        </label>
+                                        <div class="row">
+                                            <label class="form-group has-float-label col-md-6">
+                                            <input name="phone" formControlName="phone" class="form-control" type="text" placeholder="" />
+                                            <span>{{ 'cliente.phone' | translate }}</span>
+                                          </label>
+                                            <label class="form-group has-float-label col-md-6">
+                                            <input name="mobilephone" formControlName="mobilephone" class="form-control" type="text" placeholder="" />
+                                            <span>{{ 'cliente.phone' | translate }}</span>
+                                          </label>
+                                        </div>
+                                        <label class="form-group has-float-label">
+                                          <input name="email" formControlName="email" class="form-control" type="text" placeholder="" />
+                                          <small *ngIf="emailInv" class="text-danger">Debe ingresar un email</small>
+                                          <span>{{ 'forms.email' | translate }}</span>
+                                        </label>
+                                        <!-- <label class="form-group has-float-label">
+                                        <input class="form-control" bsDatepicker [container]="'html'">
+                                        <span>{{ 'forms.date' | translate }}</span>
+                                      </label> -->
+                                        <button class="btn btn-secondary" (click)="cancelar()" type="button">{{ 'forms.cancel' | translate }}</button>
+                                        <button class="btn btn-primary" type="submit">{{ 'forms.submit' | translate }}</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="{{'pages.followers' | translate | uppercase }}">
+                    <app-profile-friends></app-profile-friends>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>

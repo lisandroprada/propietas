@@ -1,0 +1,50 @@
+<!-- <div>
+    <form (ngSubmit)="onSubmit() " [formGroup]="forma ">
+        <quill-editor [modules]="{toolbar: true} " formControlName="editor" name="editor" [styles]="{height: '200px'} " (onFocus)="focus($event) " (onEditorChanged)="changedEditor($event) " (onBlur)="blur($event) " (onEditorCreated)="created($event) ">
+        </quill-editor>
+        <pre>{{forma.get('editor').value |json}} </pre>
+    </form>
+</div> -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h1>Contratos</h1>
+            <div class="top-right-button-container">
+                <div dropdown>
+                    <button dropdownToggle type="button" class="btn btn-outline-primary btn-lg flex-grow-1 dropdown-toggle">
+                {{ 'pages.actions' | translate }} <span class="caret"></span>
+              </button>
+                    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <li role="menuitem"><a class="dropdown-item" (click)="showAddNewModal()" href="javascript:;">Editor de texto</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="javascript:;">Imprimir</a></li>
+                    </ul>
+                </div>
+            </div>
+            <app-breadcrumb></app-breadcrumb>
+        </div>
+        <app-contrato-editor-modal #addNewModalRef></app-contrato-editor-modal>
+        <div>
+            <tabset class="separator-tabs">
+                <tab heading="Detalles de contato">
+                    <div class="col-12 col-lg-8 col-xl-8 col-right">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="mb-4"> Contrato </h5>
+                                <pre>
+                                  {{contrato | json}}
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Detalles de contato">
+                    <div class="col-12 col-lg-4 col-xl-4 col-left">
+                        Otra
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>

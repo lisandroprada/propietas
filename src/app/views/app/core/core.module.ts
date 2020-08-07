@@ -9,8 +9,18 @@ import { CoreMenuComponent } from './core-menu.component';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ClienteComponent } from './clientes/cliente.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { InmuebleComponent } from './inmuebles/inmueble.component';
+import { QuillModule } from 'ngx-quill';
+import { ContratoEditorComponent } from './contratos/editor/contrato-editor/contrato-editor.component';
+import { ContratoComponent } from './contratos/contrato.component';
+
 
 
 @NgModule({
@@ -19,7 +29,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ClientesComponent,
     InmueblesComponent,
     ContratosComponent,
-
+    ClienteComponent,
+    InmuebleComponent,
+    ContratoEditorComponent,
+    ContratoComponent
   ],
   imports: [
     SharedModule,
@@ -31,7 +44,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       useBootstrap4: true,
     }),
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    TabsModule,
+    NgSelectModule,
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    ReactiveFormsModule,
+    QuillModule.forRoot()
+
   ]
 })
 export class CoreModule { }

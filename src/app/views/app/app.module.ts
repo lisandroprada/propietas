@@ -10,8 +10,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [BlankPageComponent, AppComponent],
@@ -28,7 +29,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     }),
     PaginationModule.forRoot(),
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+    QuillModule.forRoot()
   ]
 })
 export class AppModule { }

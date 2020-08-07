@@ -33,7 +33,6 @@ export class ListPageHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.itemOrderLabel);
   }
 
   onSelectDisplayMode(mode: string) {
