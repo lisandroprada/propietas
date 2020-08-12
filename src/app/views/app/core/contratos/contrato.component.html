@@ -1,40 +1,111 @@
 <div class="row">
-    <div class="col-12 col-lg-12 col-xl-12">
+    <div class="col-9 col-lg-9 col-xl-9">
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="mb-4">{{ 'forms.inmuebles-detalle' | translate }}</h5>
                 <form (ngSubmit)="onSubmit()" [formGroup]="forma">
                     <div class="row">
                         <label class="form-group has-float-label  col-md-6">
-                      <ng-select [items]="inmuebles" [multiple]="false" [closeOnSelect]="true" [searchable]="true"  bindLabel="address" [typeahead]="typeaheadInmueble" placeholder="Select people" formControlName="inmueble">
+                      <ng-select [items]="inmuebles" [closeOnSelect]="true" [searchable]="true" placeholder="Ingrese dirección o propietario" bindLabel="address" [typeahead]="typeaheadInmueble" formControlName="inmueble">
                       </ng-select>
                       <span>{{ 'forms.owner' | translate }}</span>
+                    </label>
+                        <label class="form-group has-float-label  col-md-6">
+                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Seleccione {{ 'forms.locador' | translate }}" formControlName="locador">
+                      </ng-select>
+                      <span>{{ 'forms.locador' | translate }}</span>
                     </label>
                     </div>
-                    <div class="row">
-                        <label class="form-group has-float-label  col-md-4">
-                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Seleccione {{ 'forms.owner' | translate }}" formControlName="locador">
-                      </ng-select>
-                      <span>{{ 'forms.owner' | translate }}</span>
-                    </label>
-                        <label class="form-group has-float-label  col-md-4">
-                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Select people" formControlName="locatario">
-                      </ng-select>
-                      <span>{{ 'forms.owner' | translate }}</span>
-                    </label>
-                        <label class="form-group has-float-label  col-md-4">
-                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Select people" formControlName="fiador">
-                      </ng-select>
-                      <span>{{ 'forms.owner' | translate }}</span>
-                    </label>
-                    </div>
+                    <hr>
                     <div class="row">
                         <label class="form-group has-float-label  col-md-6">
+                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Seleccione {{ 'forms.locatario' | translate }}" formControlName="locatario">
+                      </ng-select>
+                      <span>{{ 'forms.locatario' | translate }}</span>
+                    </label>
+                        <label class="form-group has-float-label  col-md-6">
+                      <ng-select [items]="items" [multiple]="true" [closeOnSelect]="true" [searchable]="true"  bindLabel="fullName" [typeahead]="typeahead" placeholder="Seleccione {{ 'forms.fiador' | translate }}" formControlName="fiador">
+                      </ng-select>
+                      <span>{{ 'forms.fiador' | translate }}</span>
+                    </label>
+                    </div>
+                    <div class="row">
+                        <label class="form-group has-float-label  col-md-3">
+                        <input name="duracion" formControlName="duracion" class="form-control" type="text" placeholder="" />
+                        <span>Duración</span>
+                      </label>
+                        <label class="form-group has-float-label  col-md-3">
                         <input name="monto" formControlName="monto" class="form-control" type="text" placeholder="" />
                         <span>Monto</span>
                       </label>
+                        <label class="form-group has-float-label  col-md-3">
+                        <input name="montoActualizacion" formControlName="montoActualizacion" class="form-control" type="text" placeholder="" />
+                        <span>Actualización</span>
+                      </label> <label class="form-group has-float-label  col-md-3">
+                        <input name="periodoActualizacion" formControlName="periodoActualizacion" class="form-control" type="text" placeholder="" />
+                        <span>Período de actualiación</span>
+                      </label>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <label class="form-group has-float-label  col-md-3">
+                      <input name="honorarioLocador" formControlName="honorarioLocador" class="form-control" type="text" placeholder="" />
+                      <span>Honorarios Locador</span>
+                    </label>
+                        <label class="form-group has-float-label  col-md-3">
+                      <input name="cuotasHonorarioLocador" formControlName="cuotasHonorarioLocador" class="form-control" type="text" placeholder="" />
+                      <span>Cuotas</span>
+
+                    </label> <label class="form-group has-float-label  col-md-3">
+                      <input name="honorarioLocatario" formControlName="honorarioLocatario" class="form-control" type="text" placeholder="" />
+                      <span>Honorarios Locatario</span>
+                    </label>
+                        <label class="form-group has-float-label  col-md-3">
+                      <input name="cuotasHonorarioLocatario" formControlName="cuotasHonorarioLocatario" class="form-control" type="text" placeholder="" />
+                      <span>Cuotas</span>
+                    </label>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <label class="form-group has-float-label  col-md-3">
+                    <input name="administracionMonto" formControlName="administracionMonto" class="form-control" type="text" placeholder="" />
+                    <span>Administración ($)</span>
+                  </label>
+                        <label class="form-group has-float-label  col-md-3">
+                    <input name="administracion" formControlName="administracion" class="form-control" type="text" placeholder="" />
+                    <span>Administración (%)</span>
+                  </label>
+                        <label class="form-group has-float-label  col-md-3">
+                    <input name="depositoGarantia" formControlName="depositoGarantia" class="form-control" type="text" placeholder="" />
+                    <span>Depósito de garantía</span>
+                  </label> <label class="form-group has-float-label  col-md-3">
+                    <input name="cuotasDepositoGarantia" formControlName="cuotasDepositoGarantia" class="form-control" type="text" placeholder="" />
+                    <span>Cuotas</span>
+                  </label>
+                    </div>
+                    <div class="row col-md-6" style="padding-left: 0px;">
+                        <label class="form-group has-float-label  col-md-3">
+                        <input name="administracionMonto" formControlName="administracionMonto" class="form-control" type="text" placeholder="" />
+                        <span>Administración ($)</span>
+                      </label>
+                        <label class="form-group has-float-label  col-md-3">
+                        <input name="administracionMonto" formControlName="administracionMonto" class="form-control" type="text" placeholder="" />
+                        <span>Administración ($)</span>
+                      </label>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-lg-3 col-xl-3">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="min-width-zero">
+                    <a routerLink="./">
+                        <p class="list-item-heading mb-1 truncate" *ngFor="let item of forma.value.locador">{{item.fullName}}</p>
+                    </a>
+                    <p class="mb-2 text-muted text-small">Locatario</p>
+                </div>
             </div>
         </div>
     </div>

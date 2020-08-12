@@ -29,8 +29,10 @@ export class ContratoComponent implements OnInit {
               private _clienteService: ClienteService,
               private _inmuebleService: InmuebleService,
               private ngConfig: NgSelectConfig) {
+
                 this.ngConfig.typeToSearchText = 'Escriba un nombre';
                 this.ngConfig.notFoundText = 'No encontrado';
+
                 this.obtieneClientes();
                 this.obtieneInmuebles();
                 this.crearFormulario();
@@ -44,13 +46,13 @@ export class ContratoComponent implements OnInit {
 
   crearFormulario() {
     this.forma = this.fb.group({
-      inmueble: [''],
-      monto: [''],
-      locador: [''],
-      locatario: [''],
-      fiador: [''],
+      inmueble: [null],
+      locador: [null],
+      locatario: [null],
+      fiador: [null],
       tipo: [''],
       duracion: [''],
+      monto: [''],
       montoActualizacion: [''],
       periodoActualizacion: [''],
       honorarioLocador: [''],
@@ -58,6 +60,7 @@ export class ContratoComponent implements OnInit {
       honorarioLocatario: [''],
       cuotasHonorarioLocatario: [''],
       administracion: [''],
+      administracionMonto: [''],
       depositoGarantia: [''],
       cuotasDepositoGarantia: [''],
       fechaInicio: [''],
