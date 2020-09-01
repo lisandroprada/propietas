@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import ticketItems, { ITicket } from 'src/app/data/tickets';
 
 @Component({
@@ -7,9 +7,11 @@ import ticketItems, { ITicket } from 'src/app/data/tickets';
 })
 export class TicketsComponent implements OnInit {
 
+  @Input() inmuebles: any;
+
   constructor() { }
 
-  data: ITicket[] = ticketItems;
+  data = this.inmuebles;
 
 
   ngOnInit() {

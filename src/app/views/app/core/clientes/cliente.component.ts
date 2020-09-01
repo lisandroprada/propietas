@@ -22,11 +22,11 @@ export class ClienteComponent implements OnInit {
   isLoading: boolean;
 
 
-  constructor( private _activatedRoute: ActivatedRoute,
-               private _clienteService: ClienteService,
-               private _localizacion: LocalizacionService,
-               private fb: FormBuilder) {
-    _activatedRoute.params.subscribe( params => { this.id = params.id; });
+  constructor(private _activatedRoute: ActivatedRoute,
+    private _clienteService: ClienteService,
+    private _localizacion: LocalizacionService,
+    private fb: FormBuilder) {
+    _activatedRoute.params.subscribe(params => { this.id = params.id; });
     this.crearFormulario();
 
 
@@ -41,14 +41,14 @@ export class ClienteComponent implements OnInit {
 
 
   loadProvincias() {
-    this._localizacion.getProvincia().subscribe( data => {
+    this._localizacion.getProvincia().subscribe(data => {
       this.state = data.provincias;
     });
   }
 
   loadLocalidades(iso) {
     this._localizacion.getCiudad(iso)
-      .subscribe( data => {
+      .subscribe(data => {
         this.city = data.localidades[0].localidad;
         this.forma.patchValue({
           city: this.data.city
@@ -57,22 +57,21 @@ export class ClienteComponent implements OnInit {
   }
 
   onChanges(): void {
-
-    this.forma.get('state').valueChanges.subscribe( (val: any) => {
+    this.forma.get('state').valueChanges.subscribe((val: any) => {
       this.loadLocalidades(val);
     });
   }
 
   loadData() {
     this._clienteService.getCliente(this.id)
-    .subscribe( data => {
+      .subscribe(data => {
         this.data = data.clientes;
         this.cargarDataFormulario();
-    },
-    error => {
-      this.isLoading = false;
-    }
-    );
+      },
+        error => {
+          this.isLoading = false;
+        }
+      );
   }
 
   addTagFn(addedName) {
@@ -101,7 +100,7 @@ export class ClienteComponent implements OnInit {
   crearFormulario() {
     this.forma = this.fb.group({
       customerName: ['', Validators.required],
-      customerLastName: ['',  Validators.required],
+      customerLastName: ['', Validators.required],
       gender: ['', Validators.required],
       identityCard: [''],
       iva: [''],
@@ -136,16 +135,16 @@ export class ClienteComponent implements OnInit {
 
   onSubmit() {
 
-    if ( this.forma.invalid ) {
-      return Object.values( this.forma.controls ).forEach( control => {
+    if (this.forma.invalid) {
+      return Object.values(this.forma.controls).forEach(control => {
         control.markAsTouched();
       });
     }
 
     this._clienteService.updateCliente(this.forma.value, this.id)
-    .subscribe( resp => {
-      this.loadData();
-    });
+      .subscribe(resp => {
+        this.loadData();
+      });
   }
 
   cancelar() {

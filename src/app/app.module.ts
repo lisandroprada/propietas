@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app.routing';
-import { AppComponent } from './app.component';
-import { ViewsModule } from './views/views.module';
-import { TranslateModule } from '@ngx-translate/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { AppRoutingModule } from "./app.routing";
+import { AppComponent } from "./app.component";
+import { ViewsModule } from "./views/views.module";
+import { TranslateModule } from "@ngx-translate/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
-import { LayoutContainersModule } from './containers/layout/layout.containers.module';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment";
+import { LayoutContainersModule } from "./containers/layout/layout.containers.module";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   imports: [
@@ -22,12 +22,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TranslateModule.forRoot(),
     HttpClientModule,
     NgSelectModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

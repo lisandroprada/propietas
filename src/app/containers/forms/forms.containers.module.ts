@@ -15,7 +15,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { DropzoneModule } from 'ngx-dropzone-wrapper';
 import { NouisliderModule } from 'ng2-nouislider';
-import { RatingModule } from 'ngx-bootstrap';
+import { RatingModule } from 'ngx-bootstrap/rating';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -36,7 +36,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    RatingModule,
+    RatingModule.forRoot(),
     DropzoneModule,
     NouisliderModule,
     TranslateModule

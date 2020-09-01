@@ -1,27 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CoreRoutingModule } from './core-routing.module';
-import { ClientesComponent } from './clientes/clientes.component';
-import { InmueblesComponent } from './inmuebles/inmuebles.component';
-import { ContratosComponent } from './contratos/contratos.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { LayoutContainersModule } from 'src/app/containers/layout/layout.containers.module';
-import { CoreMenuComponent } from './core-menu.component';
-import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
-import { ContextMenuModule } from 'ngx-contextmenu';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { ClienteComponent } from './clientes/cliente.component';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { InmuebleComponent } from './inmuebles/inmueble.component';
-import { QuillModule } from 'ngx-quill';
-import { ContratoEditorComponent } from './contratos/editor/contrato-editor/contrato-editor.component';
-import { ContratoComponent } from './contratos/contrato.component';
-
-
+import { NgModule } from "@angular/core";
+import { CoreRoutingModule } from "./core-routing.module";
+import { ClientesComponent } from "./clientes/clientes.component";
+import { InmueblesComponent } from "./inmuebles/inmuebles.component";
+import { ContratosComponent } from "./contratos/contratos.component";
+import { SharedModule } from "src/app/shared/shared.module";
+import { LayoutContainersModule } from "src/app/containers/layout/layout.containers.module";
+import { CoreMenuComponent } from "./core-menu.component";
+import { PagesContainersModule } from "src/app/containers/pages/pages.containers.module";
+import { ContextMenuModule } from "ngx-contextmenu";
+import { PaginationModule } from "ngx-bootstrap/pagination";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ModalModule } from "ngx-bootstrap/modal";
+import { ClienteComponent } from "./clientes/cliente.component";
+import { TabsModule } from "ngx-bootstrap/tabs";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { InmuebleComponent } from "./inmuebles/inmueble.component";
+import { QuillModule } from "ngx-quill";
+import { ContratoEditorComponent } from "./contratos/editor/contrato-editor/contrato-editor.component";
+import { ContratoComponent } from "./contratos/contrato.component";
+import { ContratosSgComponent } from './contratos-sg/contratos-sg.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,8 @@ import { ContratoComponent } from './contratos/contrato.component';
     ClienteComponent,
     InmuebleComponent,
     ContratoEditorComponent,
-    ContratoComponent
+    ContratoComponent,
+    ContratosSgComponent,
   ],
   imports: [
     SharedModule,
@@ -45,13 +45,12 @@ import { ContratoComponent } from './contratos/contrato.component';
     }),
     FormsModule,
     ModalModule.forRoot(),
-    TabsModule,
+    TabsModule.forRoot(),
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
-    QuillModule.forRoot()
-
-  ]
+    QuillModule.forRoot(),
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

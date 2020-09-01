@@ -11,6 +11,11 @@
     "deprecation": {
       "severity": "warning"
     },
+    "align": [
+      true,
+      "parameters",
+      "statements"
+    ],
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,

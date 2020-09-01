@@ -5,7 +5,8 @@
 export const environment = {
   production: true,
   root: '/app',
-  apiUrl:  'https://api.coloredstrategies.com',
+  apiUrl: 'https://api.coloredstrategies.com',
+  apiUrlLocal: 'http://prueba.ipropietas.com.ar/node',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
   menuHiddenBreakpoint: 768,

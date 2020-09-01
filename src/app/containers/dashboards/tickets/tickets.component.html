@@ -1,18 +1,18 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">{{ 'dashboards.tickets' | translate }}</h5>
+        <h5 class="card-title">{{ 'pages.lista-inmueble' | translate }}</h5>
         <div class="dashboard-list-with-user">
             <perfect-scrollbar class="scroll" [config]="{suppressScrollX: true, wheelPropagation: false}">
-                <div *ngFor="let ticket of data" class="d-flex flex-row mb-3 pb-3 border-bottom">
+                <div *ngFor="let inmueble of inmuebles" class="d-flex flex-row mb-3 pb-3 border-bottom">
                     <a routerLink="/app/pages/product/details">
-                        <img [src]="ticket.thumb" [alt]="ticket.title"
+                        <img [src]="inmueble.thumb | imagen:'cliente'" [alt]="inmueble.title"
                             class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                     </a>
                     <div class="pl-3 pr-2">
                         <a routerLink="/app/pages/product/details">
-                            <p class="font-weight-medium mb-0 ">{{ticket.title}}</p>
+                            <p class="font-weight-medium mb-0 ">{{inmueble.address}}</p>
                             <p class="text-muted mb-0 text-small">
-                                {{ticket.detail}}
+                                {{inmueble.fullName}}
                             </p>
                         </a>
                     </div>
@@ -20,4 +20,8 @@
             </perfect-scrollbar>
         </div>
     </div>
+    <pre>
+        {{data | json}}
+    </pre>
+
 </div>

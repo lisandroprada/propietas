@@ -1,32 +1,32 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ContratosService } from "src/app/services/contratos.service";
+import { HotkeysService, Hotkey } from "angular2-hotkeys";
+import { Contrato } from "src/app/models/contrato";
 import { ContextMenuComponent } from "ngx-contextmenu";
-import { AddNewProductModalComponent } from "src/app/containers/pages/add-new-product-modal/add-new-product-modal.component";
-import { Inmueble } from "src/app/models/inmueble";
-import { InmuebleService } from "src/app/services/inmueble.service";
-import { HotkeysService } from "angular2-hotkeys";
+import { ContratoModalComponent } from "src/app/containers/pages/core/modal/contrato-modal/contrato-modal.component";
 
 @Component({
-  selector: "app-inmuebles",
-  templateUrl: "./inmuebles.component.html",
+  selector: "app-contratos-sg",
+  templateUrl: "./contratos-sg.component.html",
   styles: [],
 })
-export class InmueblesComponent implements OnInit {
-  selected: Inmueble[] = [];
-  data: Inmueble[] = [];
-  inmueble: Inmueble[] = [];
-  currentPage = 1;
-  itemsPerPage = 10;
-  search = "";
-  orderBy = "";
+export class ContratosSgComponent implements OnInit {
   displayMode = "list";
   displayModeThumb = false;
   displayModeImg = false;
   selectAllState = "";
   statusColor = "secondary";
+  selected: Contrato[] = [];
+  data: any;
+  cliente: Contrato[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
+  search = "";
+  orderBy = "";
+  isLoading: boolean;
   endOfTheList = false;
   totalItem = 0;
   totalPage = 0;
-  isLoading: boolean;
   itemOptionsOrders = [
     { label: "Apellido", value: "customerLastName" },
     { label: "Documento", value: "identityCard" },
@@ -36,13 +36,27 @@ export class InmueblesComponent implements OnInit {
 
   @ViewChild("basicMenu") public basicMenu: ContextMenuComponent;
   @ViewChild("addNewModalRef", { static: true })
-  addNewModalRef: AddNewProductModalComponent;
-  constructor(
-    private inmuebleService: InmuebleService,
-    private hotkeysService: HotkeysService
-  ) {}
+  addNewModalRef: ContratoModalComponent;
 
-  ngOnInit() {
+  constructor(
+    private _contratoService: ContratosService,
+    private hotkeysService: HotkeysService
+  ) {
+    this.hotkeysService.add(
+      new Hotkey("ctrl+a", (event: KeyboardEvent): boolean => {
+        this.selected = [...this.data];
+        return false;
+      })
+    );
+    this.hotkeysService.add(
+      new Hotkey("ctrl+d", (event: KeyboardEvent): boolean => {
+        this.selected = [];
+        return false;
+      })
+    );
+  }
+
+  ngOnInit(): void {
     this.loadData(
       this.itemsPerPage,
       this.currentPage,
@@ -62,14 +76,15 @@ export class InmueblesComponent implements OnInit {
     this.search = search;
     this.orderBy = orderBy;
 
-    this.inmuebleService
-      .getInmuebles(pageSize, currentPage, search, orderBy)
+    this._contratoService
+      .getContratosSG(pageSize, currentPage, search, orderBy)
       .subscribe(
-        (data) => {
+        (data: any) => {
           if (data.status) {
+            console.log(data);
             this.isLoading = false;
-            this.data = data.inmuebles;
-            this.inmueble = data.inmuebles;
+            this.data = data.contratos;
+            this.cliente = data.contratos;
             this.totalItem = data.totalItem;
             this.totalPage = data.totalPage;
             this.setSelectAllState();
@@ -82,7 +97,6 @@ export class InmueblesComponent implements OnInit {
         }
       );
   }
-
   changeDisplayMode(mode) {
     this.displayMode = mode;
   }
@@ -91,11 +105,10 @@ export class InmueblesComponent implements OnInit {
     this.addNewModalRef.show();
   }
 
-  isSelected(p: Inmueble) {
+  isSelected(p: Contrato) {
     return this.selected.findIndex((x) => x._id === p._id) > -1;
   }
-
-  onSelect(item: Inmueble) {
+  onSelect(item: Contrato) {
     if (this.isSelected(item)) {
       this.selected = this.selected.filter((x) => x._id !== item._id);
     } else {
@@ -113,7 +126,6 @@ export class InmueblesComponent implements OnInit {
       this.selectAllState = "";
     }
   }
-
   selectAllChange($event) {
     if ($event.target.checked) {
       this.selected = [...this.data];
@@ -140,12 +152,14 @@ export class InmueblesComponent implements OnInit {
     this.loadData(this.itemsPerPage, 1, val, this.orderBy);
   }
 
-  onContextMenuClick(action: string, item: Inmueble) {
+  onContextMenuClick(action: string, item: Contrato) {
     console.log(
       "onContextMenuClick -> action :  ",
       action,
-      ", item._id :",
+      ", item.identityCard :",
       item._id
     );
   }
+
+  onSubmit() {}
 }

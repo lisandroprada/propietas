@@ -13,6 +13,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { QuillModule } from 'ngx-quill';
+import { WizardsContainersModule } from 'src/app/containers/wizard/wizards.containers.module';
 
 @NgModule({
   declarations: [BlankPageComponent, AppComponent],
@@ -24,6 +25,7 @@ import { QuillModule } from 'ngx-quill';
     HotkeyModule.forRoot(),
     NgSelectModule,
     PagesContainersModule,
+    WizardsContainersModule,
     ContextMenuModule.forRoot({
       useBootstrap4: true,
     }),

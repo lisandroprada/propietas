@@ -9,6 +9,8 @@ export class Inmueble {
     public fullName: string,
     public city: string,
     public state: string,
+    public disponible?: boolean,
+    public disponibleFecha?: Date,
     public obs?: string,
     public descripcion?: string,
     public phone?: string,
@@ -31,5 +33,5 @@ export class Inmueble {
     public uuid?: string,
     public img?: string,
     public _id?: string
-  ) {}
+  ) { }
 }

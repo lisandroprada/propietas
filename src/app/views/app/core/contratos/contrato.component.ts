@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { debounceTime, switchMap } from 'rxjs/operators';
@@ -23,26 +22,27 @@ export class ContratoComponent implements OnInit {
   typeaheadInmueble = new EventEmitter<string>();
 
 
-  constructor(private route: ActivatedRoute,
-              private fb: FormBuilder,
-              private cd: ChangeDetectorRef,
-              private _clienteService: ClienteService,
-              private _inmuebleService: InmuebleService,
-              private ngConfig: NgSelectConfig) {
+  constructor(
+    private fb: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private _clienteService: ClienteService,
+    private _inmuebleService: InmuebleService,
+    private ngConfig: NgSelectConfig
+  ) {
 
-                this.ngConfig.typeToSearchText = 'Escriba un nombre';
-                this.ngConfig.notFoundText = 'No encontrado';
+    this.ngConfig.typeToSearchText = 'Escriba un nombre';
+    this.ngConfig.notFoundText = 'No encontrado';
 
-                this.obtieneClientes();
-                this.obtieneInmuebles();
-                this.crearFormulario();
+    this.obtieneClientes();
+    this.obtieneInmuebles();
+    this.crearFormulario();
 
-              }
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {}
+  onSubmit() { }
 
   crearFormulario() {
     this.forma = this.fb.group({
@@ -71,25 +71,25 @@ export class ContratoComponent implements OnInit {
 
   obtieneClientes() {
     this.typeahead.pipe(debounceTime(200), switchMap(term => this._clienteService.getClientes(10, 1, term)))
-    .subscribe((items: any) => {
-          this.items = items.clientes;
-          this.cd.markForCheck();
-    }, (err) => {
-      this.items = [];
-      this.cd.markForCheck();
-    }
-    );
+      .subscribe((items: any) => {
+        this.items = items.clientes;
+        this.cd.markForCheck();
+      }, (err) => {
+        this.items = [];
+        this.cd.markForCheck();
+      }
+      );
   }
 
   obtieneInmuebles() {
     this.typeaheadInmueble.pipe(debounceTime(200), switchMap(term => this._inmuebleService.getInmuebles(10, 1, term)))
-    .subscribe((items: any) => {
-      this.inmuebles = items.inmuebles;
-      this.cd.markForCheck();
-    }, (err) => {
-      this.inmuebles = [];
-      this.cd.markForCheck();
-    })
+      .subscribe((items: any) => {
+        this.inmuebles = items.inmuebles;
+        this.cd.markForCheck();
+      }, (err) => {
+        this.inmuebles = [];
+        this.cd.markForCheck();
+      });
   }
 
 }

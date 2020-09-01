@@ -1,9 +1,289 @@
 <ng-template #template>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">{{'pages.add-new-modal-title' | translate}}</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      {{ "pages.add-new-lease-title" | translate }}
+    </h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
       <span aria-hidden="true">&times;</span>
-  </button>
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-8 col-lg-8 col-xl-8">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-4">{{ "forms.inmuebles-detalle" | translate }}</h5>
+          <form (ngSubmit)="onSubmit()" [formGroup]="forma">
+            <div class="row">
+              <label class="form-group has-float-label col-md-12">
+                <ng-select
+                  [items]="inmuebles"
+                  [closeOnSelect]="true"
+                  [searchable]="true"
+                  placeholder="Ingrese dirección o propietario"
+                  bindLabel="address"
+                  [typeahead]="typeaheadInmueble"
+                  formControlName="inmueble"
+                  (change)="onChange($event)"
+                >
+                </ng-select>
+                <span>{{ "forms.inmueble" | translate }}</span>
+              </label>
+            </div>
+            <div class="row">
+              <label class="form-group has-float-label col-md-6">
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Ingrese fecha de inicio"
+                  bsDatepicker
+                  formControlName="fechaInicio"
+                  placement="top"
+                  autocomplete="off"
+                  [bsValue]="bsValue"
+                  [minDate]="minDate"
+                />
+                <span>{{ "forms.disponibleFecha" | translate }}</span>
+              </label>
+              <label class="form-group has-float-label col-md-6">
+                <select
+                  name="tipoContrato"
+                  formControlName="tipoContrato"
+                  (change)="onChangeTipoContrato($event)"
+                  class="form-control"
+                >
+                  <option value="">Seleccione una ciudad</option>
+                  <option value="Vivienda">Vivienda única</option>
+                  <option value="Comercial">Comercial</option>
+                </select>
+                <span>{{ "forms.tipoContrato" | translate }}</span>
+              </label>
+            </div>
+            <hr />
+            <div class="row">
+              <label class="form-group has-float-label col-md-6">
+                <ng-select
+                  [items]="clientes"
+                  [multiple]="true"
+                  [closeOnSelect]="true"
+                  [searchable]="true"
+                  bindLabel="fullName"
+                  [typeahead]="typeaheadCliente"
+                  placeholder="Seleccione {{ 'forms.locatario' | translate }}"
+                  formControlName="locatario"
+                >
+                </ng-select>
+                <span>{{ "forms.locatario" | translate }}</span>
+              </label>
+              <label class="form-group has-float-label col-md-6">
+                <ng-select
+                  [items]="clientes"
+                  [multiple]="true"
+                  [closeOnSelect]="true"
+                  [searchable]="true"
+                  bindLabel="fullName"
+                  [typeahead]="typeaheadCliente"
+                  placeholder="Seleccione {{ 'forms.fiador' | translate }}"
+                  formControlName="fiador"
+                >
+                </ng-select>
+                <span>{{ "forms.fiador" | translate }}</span>
+              </label>
+            </div>
+            <hr />
+            <div class="row">
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="duracion"
+                  formControlName="duracion"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Duración</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="monto"
+                  formControlName="monto"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  mask="separator.2"
+                  prefix="$ "
+                  thousandSeparator="."
+                  autocomplete="off"
+                  (change)="onChangeMonto($event)"
+                />
+                <span>Monto</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="montoActualizacion"
+                  formControlName="montoActualizacion"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  mask="separator.2"
+                  prefix="$ "
+                  thousandSeparator="."
+                  autocomplete="off"
+                />
+                <span>Actualización</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="periodoActualizacion"
+                  formControlName="periodoActualizacion"
+                  class="form-control"
+                  type="number"
+                  min="1"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Período de actualiación</span>
+              </label>
+            </div>
+            <hr />
+            <div class="row">
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="honorarioLocador"
+                  formControlName="honorarioLocador"
+                  class="form-control"
+                  type="text"
+                  prefix="$"
+                  mask="separator.2"
+                  thousandSeparator="."
+                  placeholder=""
+                  value="$ {{
+                    ((forma.value.monto * forma.value.duracion) / 100) * 2
+                      | mask: 'separator.2':','
+                  }}"
+                  autocomplete="off"
+                />
+                <span>Honorarios Locador</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="cuotasHonorarioLocador"
+                  formControlName="cuotasHonorarioLocador"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Cuotas</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="honorarioLocatario"
+                  formControlName="honorarioLocatario"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  value="$ {{
+                    ((forma.value.monto * forma.value.duracion) / 100) * 2
+                      | mask: 'separator.2':','
+                  }}"
+                  prefix="$"
+                  mask="separator.2"
+                  thousandSeparator="."
+                  autocomplete="off"
+                />
+                <span>Honorarios Locatario</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="cuotasHonorarioLocatario"
+                  formControlName="cuotasHonorarioLocatario"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Cuotas</span>
+              </label>
+            </div>
+            <hr />
+            <div class="row">
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="administracionMonto"
+                  formControlName="administracionMonto"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  mask="separator.2"
+                  prefix="$ "
+                  thousandSeparator="."
+                  autocomplete="off"
+                />
+                <span>Administración ($)</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="administracion"
+                  formControlName="administracion"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  mask="percent"
+                  suffix="%"
+                  autocomplete="off"
+                />
+                <span>Administración (%)</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="depositoGarantia"
+                  formControlName="depositoGarantia"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Depósito de garantía</span>
+              </label>
+              <label class="form-group has-float-label col-md-3">
+                <input
+                  name="cuotasDepositoGarantia"
+                  formControlName="cuotasDepositoGarantia"
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                />
+                <span>Cuotas</span>
+              </label>
+            </div>
+            <!-- <pre *ngIf="forma.value.fechaInicio" class="code-preview">{{forma.value.fechaInicio | date}}</pre> -->
+          </form>
+        </div>
+      </div>
     </div>
+    <div class="col-4 col-lg-9 col-xl-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-4">{{ "forms.inmuebles-detalle" | translate }}</h5>
+          <app-gradient-with-radial-progress-card
+            [progress]="progess"
+            [icon]="icon"
+            [title]="title"
+            [detail]="direccion"
+          >
+          </app-gradient-with-radial-progress-card>
+          <app-price-card [price]="price"></app-price-card>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <pre> {{ forma.value | json }}</pre>
+  <pre> {{ forma.value.inmueble | json }}</pre>
 </ng-template>

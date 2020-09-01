@@ -30,85 +30,87 @@ import { ComponentsCardsModule } from 'src/app/components/cards/components.cards
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SortablejsModule } from 'ngx-sortablejs';
 import { RatingModule, ProgressbarModule, ModalModule, BsDropdownModule } from 'ngx-bootstrap';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PipesModule } from '../pipes/pipes.module';
 
 @Injectable()
 export class CustomDateFormatter extends CalendarNativeDateFormatter {
-  public monthViewColumnHeader({date, locale}: DateFormatterParams): string {
-    return new Intl.DateTimeFormat(locale, {weekday: 'short'}).format(date);
+  public monthViewColumnHeader({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date);
   }
 }
 
 @NgModule({
-    declarations: [
-        AdvancedSearchComponent,
-        BestSellersComponent,
-        CakesComponent,
-        CalendarComponent,
-        ConversionRatesChartCardComponent,
-        GradientCardContainerComponent,
-        IconCardsCarouselComponent,
-        LogsComponent,
-        NewCommentsComponent,
-        OrderStockRadarChartComponent,
-        ProductCategoriesDoughnutComponent,
-        ProductCategoriesPolarAreaComponent,
-        ProfileStatusesComponent,
-        QuickPostComponent,
-        RecentOrdersComponent,
-        SalesChartCardComponent,
-        SmallLineChartsComponent,
-        SortableStatisticsRowComponent,
-        TicketsComponent,
-        TopRatedItemsComponent,
-        WebsiteVisitsChartCardComponent,
+  declarations: [
+    AdvancedSearchComponent,
+    BestSellersComponent,
+    CakesComponent,
+    CalendarComponent,
+    ConversionRatesChartCardComponent,
+    GradientCardContainerComponent,
+    IconCardsCarouselComponent,
+    LogsComponent,
+    NewCommentsComponent,
+    OrderStockRadarChartComponent,
+    ProductCategoriesDoughnutComponent,
+    ProductCategoriesPolarAreaComponent,
+    ProfileStatusesComponent,
+    QuickPostComponent,
+    RecentOrdersComponent,
+    SalesChartCardComponent,
+    SmallLineChartsComponent,
+    SortableStatisticsRowComponent,
+    TicketsComponent,
+    TopRatedItemsComponent,
+    WebsiteVisitsChartCardComponent,
 
-    ],
-    imports: [
-        SharedModule,
-        ComponentsCarouselModule,
-        ComponentsChartModule,
-        CalendarModule.forRoot({
-          provide: DateAdapter,
-          useFactory: adapterFactory
-        }),
-        ComponentsCardsModule,
-        NgxDatatableModule,
-        SortablejsModule,
-        RatingModule,
-        FormsModule,
-        NgSelectModule,
-        ProgressbarModule.forRoot(),
-        ModalModule.forRoot(),
-        BsDropdownModule.forRoot()
-    ],
-    providers: [
-      {provide: CalendarDateFormatter, useClass: CustomDateFormatter}
-    ],
-    exports: [
-        AdvancedSearchComponent,
-        BestSellersComponent,
-        CakesComponent,
-        CalendarComponent,
-        ConversionRatesChartCardComponent,
-        GradientCardContainerComponent,
-        IconCardsCarouselComponent,
-        LogsComponent,
-        NewCommentsComponent,
-        OrderStockRadarChartComponent,
-        ProductCategoriesDoughnutComponent,
-        ProductCategoriesPolarAreaComponent,
-        ProfileStatusesComponent,
-        QuickPostComponent,
-        RecentOrdersComponent,
-        SalesChartCardComponent,
-        SmallLineChartsComponent,
-        SortableStatisticsRowComponent,
-        TicketsComponent,
-        TopRatedItemsComponent,
-        WebsiteVisitsChartCardComponent,
-    ]
+  ],
+  imports: [
+    SharedModule,
+    ComponentsCarouselModule,
+    ComponentsChartModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    ComponentsCardsModule,
+    NgxDatatableModule,
+    SortablejsModule,
+    RatingModule,
+    FormsModule,
+    NgSelectModule,
+    ProgressbarModule.forRoot(),
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    PipesModule
+  ],
+  providers: [
+    { provide: CalendarDateFormatter, useClass: CustomDateFormatter }
+  ],
+  exports: [
+    AdvancedSearchComponent,
+    BestSellersComponent,
+    CakesComponent,
+    CalendarComponent,
+    ConversionRatesChartCardComponent,
+    GradientCardContainerComponent,
+    IconCardsCarouselComponent,
+    LogsComponent,
+    NewCommentsComponent,
+    OrderStockRadarChartComponent,
+    ProductCategoriesDoughnutComponent,
+    ProductCategoriesPolarAreaComponent,
+    ProfileStatusesComponent,
+    QuickPostComponent,
+    RecentOrdersComponent,
+    SalesChartCardComponent,
+    SmallLineChartsComponent,
+    SortableStatisticsRowComponent,
+    TicketsComponent,
+    TopRatedItemsComponent,
+    WebsiteVisitsChartCardComponent,
+  ]
 })
 
 export class DashboardsContainersModule { }

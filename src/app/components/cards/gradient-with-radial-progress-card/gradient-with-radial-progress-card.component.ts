@@ -10,6 +10,7 @@ export class GradientWithRadialProgressCardComponent implements OnInit {
   @Input() detail = 'detail';
   @Input() progressText = '25%';
   @Input() percent = 25;
+  @Input() progress = true;
 
   constructor() { }
 
